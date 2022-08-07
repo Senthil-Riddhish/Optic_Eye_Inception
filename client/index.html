@@ -1,0 +1,366 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eyish</title>
+    <!-- Google fonts -->
+    <script src="https://kit.fontawesome.com/1fa9899a62.js" crossorigin="anonymous"></script>
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="assets/css/style-starter.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <!-- header -->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="index.html" style="display: flex;justify-content:left;gap: 0.5rem;">
+                    <div class="" style="height: 2.5rem;width:3rem;"><img src="./assets/images/hhh.png" alt="" style="width: 100%;height: 100%;"></div>
+                    <div class="eyish">Eyish Foundation</div>
+                </a>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="courses.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                    <!-- search-right -->
+                    <div class="header-search position-relative">
+                        <div class="search-right mx-lg-2">
+                            <a href="#search" class="btn search-btn p-0" title="search">
+                                <i class="fas fa-search"></i></a>
+                            <!-- search popup -->
+                            <div id="search" class="pop-overlay">
+                                <div class="popup">
+                                    <form action="#search" method="GET" class="search-box">
+                                        <input type="search" placeholder="Enter Keyword..." name="search"
+                                            required="required" autofocus="">
+                                        <button type="submit" class="btn"><span class="fas fa-search"
+                                                aria-hidden="true"></span></button>
+                                    </form>
+                                </div>
+                                <a class="close" href="#close">×</a>
+                            </div>
+                            <!-- //search popup -->
+                        </div>
+                    </div>
+                    <!--//search-right-->
+                </div>
+                <!-- toggle switch for light and dark theme -->
+                <div class="cont-ser-position">
+                    <nav class="navigation">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="mode-container">
+                                    <i class="gg-sun"></i>
+                                    <i class="gg-moon"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </nav>
+                </div>
+                <!-- //toggle switch for light and dark theme -->
+            </nav>
+        </div>
+    </header>
+    <!-- //header -->
+
+    <!-- banner section -->
+    <section id="home" class="w3l-banner py-5" style="margin-top: 3rem;">
+        <div class="banner-content p-md-5"
+            style="height: 100%;display: flex;justify-content: center;">
+            <div class="row align-items-center m-sm-1 pt-5" style="width: 100%;height:100%;">
+                <div class="left-ll col-md-6 row">
+                    <div class="mm-tt" style="width:100%;height:2rem;text-align: center;">EYE PREDICTION</div>
+                    <div style="height: 10rem;">
+                        <div class="uploadOuter" style="height: 100%;">
+                            <span class="dragBox">
+                                Drag and Drop Image here
+                                <input type="file" onChange="dragNdrop(event)" ondragover="drag()" ondrop="drop()"
+                                    id="uploadFile" name="uploadFile">
+                            </span>
+                        </div>
+                    </div>
+                    <div style="height: 10rem;display: flex;justify-content: center;">
+                        <div id="preview" style="width:50%;height: 100%;box-shadow: rgba(240, 24, 193, 0.991) 0px 2px 4px, rgb(233, 28, 244) 0px 7px 13px -3px, rgba(209, 24, 181, 0.959) 0px -3px 0px inset;"></div>
+                    </div>
+                    <div class="row align-items-center" style="height: 10rem;">
+                        <div style="height: 2rem;display: flex;justify-content: center;">
+                            <button id="post-btn" class="button-62" role="button">Button 62</button>
+                        </div>
+                        <div class="row align-items-center" style="height: 6rem;">
+                            <div
+                                style="font-weight: bolder;height: 2rem;display: flex;justify-content: center;display: flex;justify-content: space-around;">
+                                <div style="color:rgb(245, 123, 17);">DISEASE</div>
+                                <div style="color:rgb(245, 123, 17);">:</div>
+                                <div style="color:rgb(245, 123, 17);" id="disease"></div>
+                            </div>
+                            <div
+                                style="font-weight: bolder;height: 2rem;display: flex;justify-content: center;display: flex;justify-content: space-around;">
+                                <div style="color:rgb(245, 123, 17);">CONFIDENCE</div>
+                                <div style="color:rgb(245, 123, 17);">:</div>
+                                <div style="color:rgb(245, 123, 17);" id="confidence"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="left-ll col-md-6 row" >
+                    <div class="mm-tt" style="width:100%;height:2rem;text-align: center;">3D VIEW PREDICTION</div>
+                    <div style="height: 10rem;">
+                        <div class="uploadOuter" style="height: 100%;">
+                            <span class="dragBox">
+                                Drag and Drop Image here
+                                <input type="file" onChange="dragNdrops(event)" ondragover="drags()" ondrop="drops()"
+                                    id="uploadFiles" name="uploadFiles">
+                            </span>
+                        </div>
+                    </div>
+                    <div style="height: 10rem;display: flex;justify-content: center;"> 
+                        <div id="previews" style="width:50%;height: 100%;box-shadow: rgba(240, 24, 193, 0.991) 0px 2px 4px, rgb(233, 28, 244) 0px 7px 13px -3px, rgba(209, 24, 181, 0.959) 0px -3px 0px inset;"></div>
+                    </div>
+                    <div class="row align-items-center" style="height: 10rem;">
+                        <div style="height: 2rem;display: flex;justify-content: center;">
+                            <button id="view-btn" class="button-62" role="button">submit</button>
+                        </div>
+                        <div class="row align-items-center" style="height: 6rem;">
+                            <div style="font-weight: bolder;height: 2rem;display: flex;justify-content: center;display: flex;justify-content: space-around;">
+                                <div style="color:rgb(245, 123, 17);">DISEASE</div>
+                                <div style="color:rgb(245, 123, 17);">:</div>
+                                <div style="color:rgb(245, 123, 17);" id="diseases"></div>
+                            </div>
+                            <div style="font-weight: bolder;height: 2rem;display: flex;justify-content: center;display: flex;justify-content: space-around;">
+                                <div style="color:rgb(245, 123, 17);">CONFIDENCE</div>
+                                <div style="color:rgb(245, 123, 17);">:</div>
+                                <div style="color:rgb(245, 123, 17);" id="confidences"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <footer style="width: 100%;height:1rem;"></footer>
+    <!-- 
+        <div class="container p-md-5 px-sm-4" style="border:2px solid yellow;">
+                <div class="row align-items-center py-sm-4  uploadOuter" style="border:2px solid red;">
+                    <div class="col-md-6 uploadOuter" style="border:2px solid red;height: 8rem;">
+                        <span class="dragBox">
+                            Drag and Drop Image here
+                            <input type="file" onChange="dragNdrop(event)" ondragover="drag()" ondrop="drop()"
+                                id="uploadFile">
+                        </span>
+                    </div>
+                    <div class="col-md-6" style="border:2px solid red;height: 8rem;justify-items: center;display: flex;justify-content: center;">
+                        <div id="preview" style="width:50%;height: 100%;border:2px solid yellow;"></div>
+                    </div>
+                </div>
+            </div>
+     -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fas fa-level-up-alt" aria-hidden="true"></span>
+    </button>
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        /**<i style="border: 2px solid red;height: 6rem;width: 6rem;object-fit: cover;"><img src="./assets/images/www.png" alt="" style="width: 100%;height:100%;"></i>
+                    Eyish Foundation**/
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("movetop").style.display = "block";
+            } else {
+                document.getElementById("movetop").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <!-- //move top -->
+    <script>
+        const postBtn = document.getElementById('post-btn');
+        const sendData = () => {
+            let formData = new FormData();
+            formData.append("file", uploadFile.files[0]);
+            console.log(formData);
+            axios
+                .post(
+                    'http://localhost:8000/predict_disease',
+                    formData,
+                    {
+                        // headers: {
+                        //   'Content-Type': 'application/json'
+                        // }
+                    }
+                )
+                .then(response => {
+                    console.log(response.data);
+                    document.getElementById("disease").innerText = response.data.class;
+                    document.getElementById("confidence").innerText = response.data.confidence;
+                    console.log("response", response.data.class);
+                })
+                .catch(err => {
+                    console.log(err, err.response);
+                });
+        };
+        postBtn.addEventListener('click', sendData);
+    </script>
+    <script>
+        const view = document.getElementById('view-btn');
+        const Data = () => {
+            let formDatas = new FormData();
+            formDatas.append("file", uploadFiles.files[0]);
+            console.log(formDatas);
+            axios
+                .post(
+                    'http://localhost:8000/predict_graph',
+                    formDatas,
+                    {
+                        // headers: {
+                        //   'Content-Type': 'application/json'
+                        // }
+                    }
+                )
+                .then(response => {
+                    console.log(response.data);
+                    document.getElementById("diseases").innerText = response.data.class;
+                    document.getElementById("confidences").innerText = response.data.confidence;
+                    //console.log("response", response.data.class);
+                })
+                .catch(err => {
+                    console.log(err, err.response);
+                });
+        };
+        view.addEventListener('click', Data);
+    </script>
+    <!-- common jquery plugin -->
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <!-- //common jquery plugin -->
+
+    <!-- /counter-->
+    <script src="assets/js/counter.js"></script>
+    <!-- //counter-->
+
+    <!-- theme switch js (light and dark)-->
+    <script src="assets/js/theme-change.js"></script>
+    <!-- //theme switch js (light and dark)-->
+
+    <!-- MENU-JS -->
+    <script>
+        $(window).on("scroll", function () {
+            var scroll = $(window).scrollTop();
+
+            if (scroll >= 80) {
+                $("#site-header").addClass("nav-fixed");
+            } else {
+                $("#site-header").removeClass("nav-fixed");
+            }
+        });
+
+        //Main navigation Active Class Add Remove
+        $(".navbar-toggler").on("click", function () {
+            $("header").toggleClass("active");
+        });
+        $(document).on("ready", function () {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+            $(window).on("resize", function () {
+                if ($(window).width() > 991) {
+                    $("header").removeClass("active");
+                }
+            });
+        });
+    </script>
+    <!-- //MENU-JS -->
+
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+        $(function () {
+            $('.navbar-toggler').click(function () {
+                $('body').toggleClass('noscroll');
+            })
+        });
+    </script>
+    <script>
+        function dragNdrop(event) {
+            var filename = URL.createObjectURL(event.target.files[0]); //will store file name with src
+            var preview = document.getElementById('preview'); //the div where we will show image
+            var previewImg = document.createElement("img"); //creating new image tag
+            previewImg.setAttribute("src", filename); //setting attribute src of newly created "img" element to "filename"
+            previewImg.style.height = '100%';
+            previewImg.style.width = '100%';
+            preview.innerHTML = "";
+            preview.appendChild(previewImg); //finally append "img" element to parent element "preview"
+        }
+
+        //2. drag
+
+        function drag() {
+            //while dragging it will fire this function that will add the following class
+            document.getElementById('uploadFile').parentNode.className = "draging dragBox";
+        }
+
+        //3. finally the drop()
+        function drop() {
+            document.getElementById('uploadFile').parentNode.className = 'dragBox';
+        }
+    </script>
+    <script>
+        function dragNdrops(event) {
+            var filename = URL.createObjectURL(event.target.files[0]); //will store file name with src
+            var previews = document.getElementById('previews'); //the div where we will show image
+            var previewImgs = document.createElement("img"); //creating new image tag
+            previewImgs.setAttribute("src", filename); //setting attribute src of newly created "img" element to "filename"
+            previewImgs.style.height = '100%';
+            previewImgs.style.width = '100%';
+            previews.innerHTML = "";
+            previews.appendChild(previewImgs); //finally append "img" element to parent element "preview"
+        }
+
+        //2. drag
+
+        function drags() {
+            //while dragging it will fire this function that will add the following class
+            document.getElementById('uploadFiles').parentNode.className = "draging dragBox";
+        }
+
+        //3. finally the drop()
+        function drops() {
+            document.getElementById('uploadFiles').parentNode.className = 'dragBox';
+        }
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
+
+    <!-- bootstrap -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- //bootstrap -->
+</body>
+</html>
